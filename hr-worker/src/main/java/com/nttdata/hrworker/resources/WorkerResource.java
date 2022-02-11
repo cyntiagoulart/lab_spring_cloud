@@ -13,9 +13,10 @@ import com.nttdata.hrworker.entities.Worker;
 import com.nttdata.hrworker.repositories.WorkerRepository;
 
 @RestController
-@RequestMapping (value= "/workers")
+@RequestMapping (value = "/workers")
 public class WorkerResource {
 	
+		
 	@Autowired
 	private WorkerRepository repository;
 	
@@ -27,6 +28,7 @@ public class WorkerResource {
 			
 	@GetMapping	(value = "/{id}")
 	public ResponseEntity <Worker> findById(@PathVariable Long id){
+		
 		Worker obj = repository.findById(id).get();
 		return ResponseEntity.ok(obj);
 				
